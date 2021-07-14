@@ -29,6 +29,7 @@ public class Emp {
     @Column(name = "COMM")
     Integer comm;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "DEPTNO")
     Dept dept;
 }
