@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,8 +29,7 @@ public class HomeController {
 //		logger.error("lskdfjlsjdlfkj");
 //		return "home";
 //	}
-	@Autowired
-	EmpRepository empRepository;
+
 
 	@Autowired
 	HospitalRepository	hospitalRepository;
@@ -39,6 +39,12 @@ public class HomeController {
 		model.addAttribute("jeju", area);
 		return "home";
 	}
+
+	@GetMapping("/hospital")
+	public String hospitals(Model model){
+		model.addAttribute("hospitalList", hospitalRepository.findAll());
+		return "hospital";
+	}
 	
 	@GetMapping("/json")
 	@ResponseBody
@@ -47,17 +53,4 @@ public class HomeController {
 			areaMap.put("area", area);
 		return areaMap;
 	}
-
-	@GetMapping("/emp")
-	@ResponseBody
-	public List<Emp> emp(){
-		return empRepository.findAll();
-	}
-
-	@GetMapping("/hospital")
-	public String hospitals(Model model){
-		model.addAttribute("hospitalList", hospitalRepository.findAll());
-		return "hospital";
-	}
-
 }

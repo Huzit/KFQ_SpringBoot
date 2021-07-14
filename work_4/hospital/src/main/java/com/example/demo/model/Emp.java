@@ -10,7 +10,9 @@ import javax.persistence.Id;
 @Entity
 public class Emp {
     @Id
-    int EMPNO;
-    String JOB;
-    String ENAME;
+    int empno;
+    String job;
+    String ename;
+    Integer deptno;
+    Integer sal;
 }

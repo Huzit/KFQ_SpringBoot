@@ -16,7 +16,7 @@
       <td>주소</td>
     </tr>
     <tr th:each="hospital : ${hospitalList}">
-      <td th:text="${hospital.id}">
+      <td>[[${hospital.id}]]</td>
       <td th:text="${hospital.sido}">
       <td th:text="${hospital.name}">
       <td th:text="${hospital.medical}">
