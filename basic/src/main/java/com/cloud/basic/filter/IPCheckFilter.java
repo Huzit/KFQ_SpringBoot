@@ -18,7 +18,7 @@ public class IPCheckFilter implements Filter {
         log.debug("filter begin");
         HttpServletRequest req = (HttpServletRequest) request;
         String ip = request.getRemoteAddr();
-        log.debug("ip : " + ip);
+//        log.debug("ip : " + ip);
         chain.doFilter(req, response);
         log.debug("filter end");
     }

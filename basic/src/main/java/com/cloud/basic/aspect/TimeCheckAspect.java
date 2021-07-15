@@ -16,12 +16,12 @@ public class TimeCheckAspect {
 
     @Before(value = "execution (* com.cloud.basic.controller.ThymeleafController.userList(..))")
     public void onBeforeHandler(JoinPoint joinPoint) {
-        currentTime = System.currentTimeMillis();
+//        currentTime = System.currentTimeMillis();
     }
 
     @After(value = "execution (* com.cloud.basic.controller.*.*(..))")
     public void onAfterHandler(JoinPoint joinPoint) {
-        System.out.println(System.currentTimeMillis()-currentTime);
+//        System.out.println(System.currentTimeMillis()-currentTime);
     }
 
 }

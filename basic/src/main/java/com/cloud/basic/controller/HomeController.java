@@ -1,13 +1,18 @@
 package com.cloud.basic.controller;
 
+import com.cloud.basic.model.Order;
+import com.cloud.basic.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.cloud.basic.model.Member;
 
@@ -15,7 +20,14 @@ import com.cloud.basic.model.Member;
 @Slf4j
 @Controller
 public class HomeController {
+    @Autowired
+    OrderRepository order;
 
+    @GetMapping("/order")
+    @ResponseBody
+    public List<Order> order(){
+        return order.findAll();
+    }
     @GetMapping("html/string")
     public String html() {
         return "html/string";
