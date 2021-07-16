@@ -1,14 +1,27 @@
+<img src="/download">
+<input type="file" name="file">
+<button type="button">업로드</button>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
-  const data = axios({
-    // url: '/json/map',
-    url: '/member',
-    method: 'get',
-    params: {
-      'id': 1, 'pw': 'abcd',
-      'name': 'hong'
-    }
-  });
+    document.querySelector("[type=file]").addEventListener('click', () => {
+        const formData = new FormData();
+        const file = document.querySelector("[type=file]").files[0];
+        formData.append("abcd", file);
+        formData.append("title", "TEST");
+
+        const data = axios({
+            url: '/upload1',
+            method: 'post',
+            data: formData,
+            headers:{
+                'content-type' : 'multipart/form-data'
+            }
+        });
+
+    })
+
 
   data.then(function(result) {
     console.log(result.data);

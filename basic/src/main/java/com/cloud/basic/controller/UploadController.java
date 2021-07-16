@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -27,7 +28,8 @@ public class UploadController {
 
     @PostMapping("/upload1")
     @ResponseBody
-    public String upload1Post(MultipartHttpServletRequest mRequest) {
+    public String upload1Post(MultipartHttpServletRequest mRequest, @RequestParam("title") String title) {
+        System.out.println("title: "+title);
         //파일입력이 여러개일 시 폼의 필드네임을 가져옴
         Iterator<String> iter = mRequest.getFileNames();
         //iterator로 처리
