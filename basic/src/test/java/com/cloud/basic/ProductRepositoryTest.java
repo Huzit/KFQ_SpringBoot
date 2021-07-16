@@ -51,7 +51,7 @@ class ProductRepositoryTest {
 	//옵셔널타입으로 받을 때
 	@Test
 	public void something3(){
-		Optional<Player> opt = playerRepository.findById(37L);
+		Optional<Player> opt = playerRepository.findById(39L);
 		Player p = opt.get(); //조회결과가 없다면 예외로 발생
 		System.out.println(p.getTeam().getName());
 	}
